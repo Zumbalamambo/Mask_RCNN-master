@@ -78,8 +78,6 @@ def apply_mask(image, mask, color, alpha=0.5):
             image[:, :, c])
     return image.astype(np.uint8)
 
-
-
 class DataConfig(Config):
     """
     Configuration for training on the Box dataset.

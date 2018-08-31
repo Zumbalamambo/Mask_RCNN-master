@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+  # -*- coding: utf-8 -*-
 """
 Created on 2018/8/7 9:26
 @author: gzp
@@ -8,12 +8,14 @@ import os, sys, yaml, cv2
 import numpy as np
 import re
 from PIL import Image
+
 sys.path.append('../')
 from config import cfgs
 from mrcnn.config import Config
 from mrcnn import utils
 from utils.utils import get_files
 import mrcnn.model as modellib
+
 os.environ["CUDA_VISIBLE_DEVICES"] = cfgs.train_gpus
 dataset_name = cfgs.dataset_name
 assert dataset_name in ["Box", "multibox_roi"], "please check your dataset_name in config/cfg.py!!!"
@@ -23,6 +25,7 @@ elif dataset_name == "multibox_roi":
     from datas.multibox_roi.dataset import label_name_dict
 else:
     sys.exit(0)
+
 
 def find_last_model():
     # find the latest model.
@@ -34,6 +37,7 @@ def find_last_model():
     files = sorted(files)
     file_path = os.path.join(log_dir, files[-1])
     return file_path
+
 
 class DataConfig(Config):
     """
@@ -67,6 +71,7 @@ class DataConfig(Config):
 
     # use small validation steps since the epoch is small
     VALIDATION_STEPS = 5
+
 
 class Dataset(utils.Dataset):
     # image is read from a mask file, which is 16 bits in depth.
@@ -132,6 +137,7 @@ class Dataset(utils.Dataset):
         """Return the shapes data of the image."""
         info = self.image_info[image_id]
         return info["width"], info["height"]
+
     # overwrite the load_mask
     # Generate instance masks of the given image ID.
     def load_mask(self, image_id):
@@ -151,6 +157,7 @@ class Dataset(utils.Dataset):
 
         class_ids = np.array([self.class_names.index(s) for s in labels_form])
         return mask, class_ids.astype(np.int32)
+
 
 def train():
     # summary and trained weights saved path
@@ -187,6 +194,8 @@ def train():
     # layers. You can also pass a regular expression to select
     # which layers to train by name pattern.
     model.train(dataset_train, dataset_train, learning_rate=config.LEARNING_RATE, epochs=1, layers='heads')
-    model.train(dataset_train, dataset_train, learning_rate=config.LEARNING_RATE/10, epochs=50, layers="all")
+    model.train(dataset_train, dataset_train, learning_rate=config.LEARNING_RATE / 10, epochs=50, layers="all")
+
+
 if __name__ == '__main__':
     train()
