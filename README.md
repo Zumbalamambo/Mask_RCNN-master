@@ -62,18 +62,16 @@ We succeed in implementing this repository in keras=2.0.8, and tensorflow-gpu=1.
 ### Experiments show
 
 #### Good results:
-
-| ![]() | ![]() |
+| ![](./output/Box_Resnet101_V1/valid_result/cam2_img5.png) | ![](./output/Box_Resnet101_V1/valid_result/cam2_img10.png) |
 | ----- | ----- |
-| ![]() | ![]() |
-| ![]() | ![]() |
+| ![](./output/Box_Resnet101_V1/valid_result/cam2_img15.png) | ![](./output/Box_Resnet101_V1/valid_result/cam2_img20.png) |
+| ![](./output/Box_Resnet101_V1/valid_result/cam2_img25.png) | ![](./output/Box_Resnet101_V1/valid_result/cam2_img65.png) |
 
 
 
 #### Bad results:
 
-| ![]() | ![]() |
+| ![](./output/Box_Resnet101_V1/valid_result/cam2_img50.png) | ![](./output/Box_Resnet101_V1/valid_result/cam2_img55.png) |
 | ----- | ----- |
-| ![]() | ![]() |
-| ![]() | ![]() |
-
+| ![](./output/Box_Resnet101_V1/valid_result/cam2_img75.png) | ![](./output/Box_Resnet101_V1/valid_result/cam2_img85.png) |
+| ![](./output/Box_Resnet101_V1/valid_result/cam2_img100.png) | ![](./output/Box_Resnet101_V1/valid_result/cam2_img95.png) |
